@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\PhpBootstrapTest;
+namespace SocialPoint\PhpBootstrapTest;
 
-use CodelyTv\PhpBootstrap\User;
+use SocialPoint\PhpBootstrap\User;
 use PHPUnit\Framework\TestCase;
 
 final class UserTest extends TestCase
@@ -12,8 +12,6 @@ final class UserTest extends TestCase
     /** @var User */
     private $User;
 
-    /** @var string */
-    private $greeting;
 
     // public function tearDown()
     // {
@@ -24,24 +22,29 @@ final class UserTest extends TestCase
     // }
 
     /** @test */
-    public function shouldSayHelloWhenGreeting()
+    public function createProgress()
     {
         $this->createNewUser();
 
         // $this->whenItGreets();
 
-        // $this->thenItShouldSayCodelyTv();
+        // $this->thenItShouldSaySocialPoint();
     }
 
     private function createNewUser()
     {
+        //whithout score
         $this->User = new User("Magali");
         $this->assertEquals('Magali', $this->User->getName());
+
+        //with score
+        $this->User = new User("Magali", 150);
+        $this->assertEquals(150, $this->User->getScore());
     }
 
 
-    // private function thenItShouldSayCodelyTv()
+    // private function thenItShouldSaySocialPoint()
     // {
-    //     $this->assertEquals("CodelyTV", 'CodelyTB');
+    //     $this->assertEquals("SocialPoint", 'CodelyTB');
     // }
 }

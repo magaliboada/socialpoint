@@ -26,7 +26,8 @@
         }
     ],
     "require": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "phpunit/php-invoker": "^2.0"
     },
     "require-dev": {
         "jakub-onderka/php-parallel-lint": "^1.0",

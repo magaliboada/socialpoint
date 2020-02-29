@@ -2,14 +2,14 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\PhpBootstrap;
+namespace SocialPoint\PhpBootstrap;
 
 
 final class User 
 {
-    private $score;
+    public $score;
 
-    private $size;
+    private $name;
 
     public function __construct(string $name, int $score = 0)
     {
@@ -19,7 +19,7 @@ final class User
 
     public function getScore(): ?int
     {
-        return $this->id;
+        return $this->score;
     }
 
     public function getName(): ?string
