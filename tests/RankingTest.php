@@ -14,14 +14,6 @@ final class RankingManagerTest extends TestCase
     private $RankingManager;
 
 
-    // public function tearDown()
-    // {
-    //     parent::tearDown();
-
-    //     $this->RankingManager = null;
-    //     $this->greeting = null;
-    // }
-
     /** @test */
     public function manageRanking()
     {
@@ -29,7 +21,7 @@ final class RankingManagerTest extends TestCase
 
         $this->getAbsoluteRanking();
 
-        // $this->getRelativeRanking();
+        $this->getRelativeRanking();
 
         // $this->thenItShouldSaySocialPoint();
     }
@@ -37,7 +29,8 @@ final class RankingManagerTest extends TestCase
     private function initalizeRanking()
     {
         //init
-        $this->RankingManager = new RankingManager([new User('Magalí', 500), new User('Meggi', 2)]);
+        $this->RankingManager = new RankingManager([new User('Magalí', 550), new User('Meggi', 2), new User('Tesla', 788), new User('Turing', 44),new User('Magalí2', 300), new User('Meggi2', 2), new User('Tesla2', 788), new User('Turing2', 44), 
+        new User('Mig2', 28)]);
      
         //addNew
         $this->userScore = new User('Maggie', 150);
@@ -51,20 +44,19 @@ final class RankingManagerTest extends TestCase
 
     private function getAbsoluteRanking()
     {
-        $usersArray = [];
         $users = $this->RankingManager->getUsers();
-        // echo var_export($users , true);
-        $ranking = $this->RankingManager->getAbsoluteRanking(2);
+        $ranking = $this->RankingManager->getAbsoluteRanking(100);
         $this->assertGreaterThanOrEqual($ranking, $users);
-        // $this->assertEquals("SocialPoint", 'CodelyTB');
+        
     }
 
-    private function getRealativeRanking()
+    private function getRelativeRanking()
     {
-        $usersArray = [];
-        $users = $this->RankingManager->getUsers();
-        $ranking = $this->RankingManager->getAbsoluteRanking(2);
-        $this->assertGreaterThanOrEqual($users, $ranking);
-        // echo var_export($prova, true);
+        
+
+        
+
+        $ranking = $this->RankingManager->getRelativeRanking(4, 3);
+        $this->assertEquals(count($ranking), 4*2+1);
     }
 }

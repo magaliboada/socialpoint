@@ -36,18 +36,23 @@ class RankingManager
         return $this;
     }
 
-    public function getRelativeRanking(User $user) {
+    public function getRelativeRanking(int $relativePosition, int $range) {
+       
+        if (!is_int($relativePosition)) exit();
         
-        $users = array_search($user, $this->getUsers());
+        $starting = $relativePosition - $range -1;
+        $total = $range*2 +1;
+        $ranking = array_slice($this->getUsers(), $starting);
+        $ranking = array_slice($ranking, 0, $total);
+        echo var_export($ranking);
+        return $ranking;        
+    }    
 
-        return $user;
-    }
 
-    public function getAbsoluteRanking(int $RankigRange)
+    public function getAbsoluteRanking(int $rankigRange)
     {
-        if (!is_int($RankigRange)) exit();
 
-       return array_slice($this->getUsers(), 0, $RankigRange);
+       return array_slice($this->getUsers(), 0, $rankigRange);
   
     }
 
