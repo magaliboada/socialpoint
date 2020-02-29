@@ -13,14 +13,6 @@ final class UserTest extends TestCase
     private $User;
 
 
-    // public function tearDown()
-    // {
-    //     parent::tearDown();
-
-    //     $this->User = null;
-    //     $this->greeting = null;
-    // }
-
     /** @test */
     public function createProgress()
     {
@@ -38,7 +30,7 @@ final class UserTest extends TestCase
         $this->assertEquals('Magali', $this->User->getName());
 
         //with score
-        $this->User = new User("Magali", 150);
+        $this->User = new User("Magali", '150');
         $this->assertEquals(150, $this->User->getScore());
     }
 

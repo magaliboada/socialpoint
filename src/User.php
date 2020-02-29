@@ -11,13 +11,13 @@ final class User
 
     private $name;
 
-    public function __construct(string $name, int $score = 0)
+    public function __construct(string $name, string $score = '0')
     {
         $this->name = $name;
         $this->score = $score;
     }
 
-    public function getScore(): ?int
+    public function getScore(): ?string
     {
         return $this->score;
     }
@@ -27,10 +27,12 @@ final class User
         return $this->name;
     }
 
-    public function setScore(?int $score): self
+    public function setScore(?string $score): self
     {
         $this->score = $score;
 
         return $this;
     }
+
+ 
 }
