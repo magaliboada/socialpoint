@@ -36,13 +36,20 @@ class RankingManager
         return $this;
     }
 
-    public function getAbsoluteRanking(User $user) {
+    public function getRelativeRanking(User $user) {
         
         $users = array_search($user, $this->getUsers());
 
         return $user;
     }
 
+    public function getAbsoluteRanking(int $RankigRange)
+    {
+        if (!is_int($RankigRange)) exit();
+
+       return array_slice($this->getUsers(), 0, $RankigRange);
+  
+    }
 
     public function sortUserbyScore($array, $property)
     {

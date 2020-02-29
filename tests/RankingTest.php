@@ -27,7 +27,9 @@ final class RankingManagerTest extends TestCase
     {
         $this->initalizeRanking();
 
-        $this->getRankings();
+        $this->getAbsoluteRanking();
+
+        // $this->getRelativeRanking();
 
         // $this->thenItShouldSaySocialPoint();
     }
@@ -38,7 +40,7 @@ final class RankingManagerTest extends TestCase
         $this->RankingManager = new RankingManager([new User('Magalí', 500), new User('Meggi', 2)]);
      
         //addNew
-        $this->userScore = new User('Meggi', 150);
+        $this->userScore = new User('Maggie', 150);
         $this->RankingManager = $this->RankingManager->newInputUser($this->userScore);
         $this->assertEquals(150, $this->userScore->getScore());
        
@@ -47,14 +49,22 @@ final class RankingManagerTest extends TestCase
     }
 
 
-    private function getRankings()
+    private function getAbsoluteRanking()
     {
         $usersArray = [];
         $users = $this->RankingManager->getUsers();
         // echo var_export($users , true);
-        $prova = $this->RankingManager->getAbsoluteRanking($this->userScore);
-        
-        echo var_export($prova, true);
+        $ranking = $this->RankingManager->getAbsoluteRanking(2);
+        $this->assertGreaterThanOrEqual($ranking, $users);
         // $this->assertEquals("SocialPoint", 'CodelyTB');
+    }
+
+    private function getRealativeRanking()
+    {
+        $usersArray = [];
+        $users = $this->RankingManager->getUsers();
+        $ranking = $this->RankingManager->getAbsoluteRanking(2);
+        $this->assertGreaterThanOrEqual($users, $ranking);
+        // echo var_export($prova, true);
     }
 }
