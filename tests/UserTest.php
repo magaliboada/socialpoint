@@ -17,10 +17,6 @@ final class UserTest extends TestCase
     public function createProgress()
     {
         $this->createNewUser();
-
-        // $this->whenItGreets();
-
-        // $this->thenItShouldSaySocialPoint();
     }
 
     private function createNewUser()
@@ -33,10 +29,4 @@ final class UserTest extends TestCase
         $this->User = new User("Magali", '150');
         $this->assertEquals(150, $this->User->getScore());
     }
-
-
-    // private function thenItShouldSaySocialPoint()
-    // {
-    //     $this->assertEquals("SocialPoint", 'CodelyTB');
-    // }
 }

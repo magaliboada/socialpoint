@@ -32,7 +32,7 @@ class RankingManager
         $createNew = true;
 
         foreach($this->getUsers() as &$findExisting) {
-            // echo var_export($findExisting, true);
+            
             if ($user->getName() == $findExisting->getName()){
                 $findExisting->setScore($this->scoreManage($user, $findExisting->getScore()));
                 $createNew = false;
@@ -43,12 +43,7 @@ class RankingManager
             array_push($this->users, $user);
         } 
         echo var_export($this->getUsers(), true);
-        
-        // array_search(1, array_column($arr, 'ID'));
-        // echo var_export($user->getScore(), true);
-        
-        // echo var_export($user, true);
-        
+      
 
         $this->users = $this->sortUserbyScore($this->getUsers(), 'score');
         return $this;
@@ -57,8 +52,6 @@ class RankingManager
     private function scoreManage($user, $currentScore) {
 
         $score = intval($user->getScore());
-        $signe = ['+', '-'];
-
         $currentScore = intval($currentScore);
         
         $currentScore += $score;
