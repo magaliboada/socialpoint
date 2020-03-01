@@ -9,22 +9,6 @@
         "TDD",
         "boilerplate"
     ],
-    "homepage": "https://codely.tv",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Javier Ferrer",
-            "email": "javier.ferrer@codely.tv",
-            "homepage": "https://codely.tv",
-            "role": "Developer"
-        },
-        {
-            "name": "Rafa Gómez",
-            "email": "rafa.gomez@codely.tv",
-            "homepage": "https://codely.tv",
-            "role": "Developer"
-        }
-    ],
     "require": {
         "php": ">=7.2",
         "phpunit/php-invoker": "^2.0"
